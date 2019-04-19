@@ -1,0 +1,408 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API Reference &#8212; kitsiso 0.0.5 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">kitsiso</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="license.html" title="next chapter">License</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For examples see the <a class="reference internal" href="introduction.html#ref-introduction"><span class="std std-ref">Introduction</span></a>.</p>
+</div>
+<dl class="function">
+<dt id="kitsiso.send_notification">
+<code class="descclassname">kitsiso.</code><code class="descname">send_notification</code><span class="sig-paren">(</span><em>summary</em>, <em>body=None</em>, <em>*</em>, <em>app_name=None</em>, <em>icon=None</em>, <em>urgency=&lt;Urgency.NORMAL: 1&gt;</em>, <em>timeout=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso.html#send_notification"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.send_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a simple notification.</p>
+<p>This funcition does not instantiate <a class="reference internal" href="#kitsiso.Notifier" title="kitsiso.Notifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notifier</span></code></a>. It connects
+to the D-Bus on each call and disconnects after the notification was
+sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>summary</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – a single line overview</li>
+<li><strong>body</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – multi-line body of text</li>
+<li><strong>app_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the application name</li>
+<li><strong>icon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to notification icon</li>
+<li><strong>urgency</strong> (<a class="reference internal" href="#kitsiso.Urgency" title="kitsiso.Urgency"><em>Urgency</em></a>) – urgency level</li>
+<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – notification timeout in milliseconds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="kitsiso.Notifier">
+<em class="property">class </em><code class="descclassname">kitsiso.</code><code class="descname">Notifier</code><span class="sig-paren">(</span><em>app_name=None</em>, <em>app_icon=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notifier.html#Notifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for sending notifications and handling actions and close events.</p>
+<p>Starts an event loop which can be closed with <a class="reference internal" href="#kitsiso.Notifier.quit" title="kitsiso.Notifier.quit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">quit()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>app_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the application name</li>
+<li><strong>app_icon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to default notification icon</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="kitsiso.Notifier.quit">
+<code class="descname">quit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notifier.html#Notifier.quit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notifier.quit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close event loop and connection to D-Bus.</p>
+<p>This Notifier object cannot be used anymore and should be deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notifier.get_capabilities">
+<code class="descname">get_capabilities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notifier.html#Notifier.get_capabilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notifier.get_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get server capabilities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list with server capabilities</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notifier.get_server_information">
+<code class="descname">get_server_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notifier.html#Notifier.get_server_information"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notifier.get_server_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get server information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(name, vendor, version, spec_version)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)">tuple</a>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notifier.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>noti</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notifier.html#Notifier.notify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notifier.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send notification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>noti</strong> (<a class="reference internal" href="#kitsiso.Notification" title="kitsiso.Notification"><em>Notification</em></a>) – the notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notifier.close">
+<code class="descname">close</code><span class="sig-paren">(</span><em>noti</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notifier.html#Notifier.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notifier.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close notification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>noti</strong> (<a class="reference internal" href="#kitsiso.Notification" title="kitsiso.Notification"><em>Notification</em></a>) – the notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="kitsiso.DEFAULT_TIMEOUT">
+<code class="descclassname">kitsiso.</code><code class="descname">DEFAULT_TIMEOUT</code><a class="headerlink" href="#kitsiso.DEFAULT_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expiration timeout depends on the settings of the notification server.
+It may vary for the type of notification.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="kitsiso.NO_TIMEOUT">
+<code class="descclassname">kitsiso.</code><code class="descname">NO_TIMEOUT</code><a class="headerlink" href="#kitsiso.NO_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Never expire.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="kitsiso.Urgency">
+<em class="property">class </em><code class="descclassname">kitsiso.</code><code class="descname">Urgency</code><a class="reference internal" href="_modules/kitsiso/_notification.html#Urgency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Urgency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Urgency levels for notifications: LOW, NORMAL, CRITICAL.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="kitsiso.Notification">
+<em class="property">class </em><code class="descclassname">kitsiso.</code><code class="descname">Notification</code><span class="sig-paren">(</span><em>summary</em>, <em>body=None</em>, <em>*</em>, <em>icon=None</em>, <em>urgency=&lt;Urgency.NORMAL: 1&gt;</em>, <em>timeout=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for a notification.</p>
+<p>An instance of this class has the following r/w attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>summary</li>
+<li>body</li>
+<li>icon</li>
+<li>urgency</li>
+<li>timeout</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>summary</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – a single line overview</li>
+<li><strong>body</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – multi-line body of text</li>
+<li><strong>icon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to notification icon</li>
+<li><strong>urgency</strong> (<a class="reference internal" href="#kitsiso.Urgency" title="kitsiso.Urgency"><em>Urgency</em></a>) – urgency level</li>
+<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – notification timeout in milliseconds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="kitsiso.Notification.add_action">
+<code class="descname">add_action</code><span class="sig-paren">(</span><em>key</em>, <em>name</em>, <em>func=None</em>, <em>args=()</em>, <em>kwargs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.add_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.add_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an action.</p>
+<p>An action is mostly shown as a button in the notification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – must be unique for one notification</li>
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – will be shown in the notification</li>
+<li><strong>func</strong> – callback function <cite>func(*args, **kwargs)</cite></li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – arguments for the callback function</li>
+<li><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – keyword arguments for the callback function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.del_action">
+<code class="descname">del_action</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.del_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.del_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an action.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.clear_actions">
+<code class="descname">clear_actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.clear_actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.clear_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all actions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.add_hint">
+<code class="descname">add_hint</code><span class="sig-paren">(</span><em>name</em>, <em>signature</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.add_hint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.add_hint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a hint.</p>
+<p>Hints are defined in the <a class="reference external" href="https://people.gnome.org/~mccann/docs/notification-spec/notification-spec-latest.html#hints">specification</a>.</p>
+<p>The <em>urgency</em> hint will be ignored (use the attribute <cite>urgency</cite>).</p>
+<p>The signature must be given as defined in the D-Bus specification:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Code</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>boolean</td>
+<td>b</td>
+</tr>
+<tr class="row-odd"><td>byte</td>
+<td>y</td>
+</tr>
+<tr class="row-even"><td>int</td>
+<td>i</td>
+</tr>
+<tr class="row-odd"><td>string</td>
+<td>s</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – name of the hint</li>
+<li><strong>signature</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – D-Bus signature of the value type</li>
+<li><strong>value</strong> – the value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.del_hint">
+<code class="descname">del_hint</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.del_hint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.del_hint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a hint.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.clear_hints">
+<code class="descname">clear_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.clear_hints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.clear_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.closed">
+<code class="descname">closed</code><span class="sig-paren">(</span><em>func</em>, <em>args=()</em>, <em>kwargs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.closed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.closed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a function that is envoked when the notification is closed.</p>
+<p>The the first argument to the function <code class="docutils literal notranslate"><span class="pre">func</span></code> is of type <code class="docutils literal notranslate"><span class="pre">int</span></code>
+and indicates the reason the notification was closed.
+It is defined in the specification:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1</td>
+<td>the notification expired</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>the notification was dismissed by the user</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>the notification was closed with <a class="reference internal" href="#kitsiso.Notifier.close" title="kitsiso.Notifier.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Notifier.close()</span></code></a></td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>undefined/reserved reasons</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>func</strong> – the function <cite>func(reason, *args, **kwargs)</cite></li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – arguments for the function</li>
+<li><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – keyword arguments for the function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="kitsiso.Notification.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitsiso/_notification.html#Notification.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kitsiso.Notification.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a copy of this notification.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Andreas19.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

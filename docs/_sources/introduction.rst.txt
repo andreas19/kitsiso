@@ -1,0 +1,12 @@
+.. _ref-introduction:
+
+Introduction
+============
+
+*Kitsiso* means `notification <https://glosbe.com/en/tn/notification>`_
+in `Setswana <https://en.wikipedia.org/wiki/Tswana_language>`_.
+
+This library implements the
+`Desktop Notifications Specification <https://people.gnome.org/~mccann/docs/
+notification-spec/notification-spec-latest.html>`_.
+

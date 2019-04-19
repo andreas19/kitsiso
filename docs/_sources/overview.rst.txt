@@ -1,0 +1,30 @@
+Overview
+========
+
+Library for `desktop notifications <https://people.gnome.org/~mccann/docs/notification-spec/notification-spec-latest.html>`_.
+
+
+Installation
+------------
+
+.. highlight:: none
+
+::
+
+# pip install kitsiso
+
+
+Dependencies
+------------
+
+- `jeepney == 0.4 <https://pypi.org/project/jeepney/>`_
+
+
+Links
+-----
+
+- PyPI: https://pypi.org/project/kitsiso/
+- GitHub: https://github.com/andreas19/kitsiso/
+
+
+.. include:: ../../CHANGELOG.md

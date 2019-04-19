@@ -1,0 +1,33 @@
+API Reference
+=============
+
+.. note::
+
+   For examples see the :ref:`ref-introduction`.
+
+
+.. currentmodule:: kitsiso
+
+
+.. autofunction:: send_notification
+
+
+.. autoclass:: Notifier
+
+
+.. data:: DEFAULT_TIMEOUT
+
+   Expiration timeout depends on the settings of the notification server.
+   It may vary for the type of notification.
+
+
+.. data:: NO_TIMEOUT
+
+   Never expire.
+
+
+.. autoclass:: Urgency
+   :no-members:
+
+
+.. autoclass:: Notification
