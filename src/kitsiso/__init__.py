@@ -1,6 +1,6 @@
 """Public API of the *kitsiso* package."""
 
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 
 import os
 
@@ -22,7 +22,7 @@ def send_notification(summary, body=None, *, app_name=None, icon=None,
                       urgency=Urgency.NORMAL, timeout=DEFAULT_TIMEOUT):
     """Send a simple notification.
 
-    This funcition does not instantiate :class:`Notifier`. It connects
+    This function does not instantiate :class:`Notifier`. It connects
     to the D-Bus on each call and disconnects after the notification was
     sent.
 
@@ -32,7 +32,8 @@ def send_notification(summary, body=None, *, app_name=None, icon=None,
     :param str icon: path to notification icon
     :param urgency: urgency level
     :type urgency: Urgency
-    :param int timeout: notification timeout in milliseconds
+    :param int timeout: notification timeout in seconds, :data:`NO_TIMEOUT`
+                        or :data:`DEFAULT_TIMEOUT`
     """
     conn = None
     try:
@@ -41,7 +42,8 @@ def send_notification(summary, body=None, *, app_name=None, icon=None,
                               (app_name or '', 0,
                                os.path.abspath(icon) if icon else '',
                                summary, body or '', [],
-                               {'urgency': ('y', urgency.value)}, timeout))
+                               {'urgency': ('y', urgency.value)}, 
+                               timeout * 1000 if timeout > 0 else timeout))
         conn.send_and_get_reply(msg)
     finally:
         if conn:
