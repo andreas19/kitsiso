@@ -1,6 +1,6 @@
 """Public API of the *kitsiso* package."""
 
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 
 import os
 
@@ -32,8 +32,8 @@ def send_notification(summary, body=None, *, app_name=None, icon=None,
     :param str icon: path to notification icon
     :param urgency: urgency level
     :type urgency: Urgency
-    :param int timeout: notification timeout in seconds, :data:`NO_TIMEOUT`
-                        or :data:`DEFAULT_TIMEOUT`
+    :param int timeout: notification timeout in seconds, :const:`NO_TIMEOUT`
+                        or :const:`DEFAULT_TIMEOUT`
     """
     conn = None
     try:
@@ -42,7 +42,7 @@ def send_notification(summary, body=None, *, app_name=None, icon=None,
                               (app_name or '', 0,
                                os.path.abspath(icon) if icon else '',
                                summary, body or '', [],
-                               {'urgency': ('y', urgency.value)}, 
+                               {'urgency': ('y', urgency.value)},
                                timeout * 1000 if timeout > 0 else timeout))
         conn.send_and_get_reply(msg)
     finally:
