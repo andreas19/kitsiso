@@ -62,7 +62,8 @@ class Notifier:
     def quit(self):
         """Close event loop and connection to D-Bus.
 
-        This Notifier object cannot be used anymore and should be deleted.
+        After this method is called the Notifier object
+        cannot be used anymore.
         """
         self._loop.call_soon_threadsafe(self._loop.stop)
         self._thread.join(0.5)
@@ -100,13 +101,14 @@ class Notifier:
         :type noti: Notification
         """
         icon = noti.icon or self._app_icon
+        timeout = noti.timeout * 1000 if noti.timeout > 0 else noti.timeout
         msg = new_method_call(_addr, 'Notify', 'susssasa{sv}i',
                               (self._app_name or '', noti._id,
                                os.path.abspath(icon) if icon else '',
                                noti.summary, noti.body or '',
                                noti._get_actions(),
                                noti._get_hints(),
-                               noti.timeout))
+                               timeout))
         reply = self._send_and_get_reply(msg)
         noti._id = reply[0]
         self._notifications[noti._id] = noti

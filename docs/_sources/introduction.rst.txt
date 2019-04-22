@@ -1,12 +1,68 @@
-.. _ref-introduction:
-
 Introduction
 ============
-
-*Kitsiso* means `notification <https://glosbe.com/en/tn/notification>`_
-in `Setswana <https://en.wikipedia.org/wiki/Tswana_language>`_.
 
 This library implements the
 `Desktop Notifications Specification <https://people.gnome.org/~mccann/docs/
 notification-spec/notification-spec-latest.html>`_.
 
+
+.. currentmodule:: kitsiso
+
+
+The Notifier class
+------------------
+
+A :class:`Notifier` object is responsible for sending the notifications with
+:meth:`~Notifier.notify` and handling invoked actions and close events of them.
+It can also :meth:`~Notifier.close` notifications.
+
+The methods :meth:`~Notifier.get_capabilities` and :meth:`~Notifier.get_server_information`
+are defined in the specification.
+
+On instantiation a connection to the D-Bus server will be established and an event loop
+will be started. A call to :meth:`~Notifier.quit` will close the connection and quit
+the event loop.
+
+
+The Notification class
+----------------------
+
+A :class:`Notification` object is mutable and can be updated or shown again with
+:meth:`Notifier.notify`.
+
+
+Example
+-------
+
+An application monitors some processes and informs the user with a desktop notification
+when one has finished. The user can click on an action button in the notification to
+open a page in a web browser to see more details.
+
+.. code-block:: python
+
+   import webbrowser
+
+   from kitsiso import Notifier, Notification, Urgency
+
+   notifier = Notifier('Example App')
+
+   def details(proc_id):
+       webbrowser.open('http:localhost/details&proc_id=%d' % proc_id)
+
+   def send_notify(proc_id, ok=True):
+       noti = Notification(
+           'Process %d finished' % proc_id,
+           'Status: %s' % ('SUCCESS' if ok else 'ERROR'),
+           icon='icons/icon.png' if ok else 'icons/error.png',
+           urgency=Urgency.NORMAL if ok else Urgency.CRITICAL)
+       noti.add_action('details', 'Details', details, (proc_id,))
+       notifier.notify(noti)
+
+   ...
+
+   # a process has just finished and the details are stored somewhere so
+   # they can be retrieved for the web page
+
+   send_notify(42)
+
+.. image:: _static/notification.png

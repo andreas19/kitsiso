@@ -32,7 +32,8 @@ class Notification:
     :param str icon: path to notification icon
     :param urgency: urgency level
     :type urgency: Urgency
-    :param int timeout: notification timeout in milliseconds
+    :param int timeout: notification timeout in seconds, :const:`NO_TIMEOUT`
+                        or :const:`DEFAULT_TIMEOUT`
     """
 
     def __init__(self, summary, body=None, *, icon=None,
@@ -48,7 +49,7 @@ class Notification:
         self._hints = {}
         self._closed_handler = None
 
-    def add_action(self, key, name, func=None, args=(), kwargs=None):
+    def add_action(self, key, name, func, args=(), kwargs={}):  # noqa: B006
         """Add an action.
 
         An action is mostly shown as a button in the notification.
@@ -56,12 +57,13 @@ class Notification:
         :param str key: must be unique for one notification
         :param str name: will be shown in the notification
         :param func: callback function `func(*args, **kwargs)`
+        :type func: callable or None
         :param args: arguments for the callback function
         :type args: tuple
         :param kwargs: keyword arguments for the callback function
         :type kwargs: dict
         """
-        self._actions[key] = (key, name, func, args, kwargs or {})
+        self._actions[key] = (key, name, func, args, kwargs)
 
     def del_action(self, key):
         """Delete an action."""
@@ -79,7 +81,8 @@ class Notification:
         /~mccann/docs/notification-spec/notification-spec-latest.html
         #hints>`_.
 
-        The *urgency* hint will be ignored (use the attribute `urgency`).
+        The *urgency* hint will be ignored (use the parameter or
+        the attribute `urgency`).
 
         The signature must be given as defined in the D-Bus specification:
 
@@ -107,12 +110,11 @@ class Notification:
         """Clear all hints."""
         self._hints.clear()
 
-    def closed(self, func, args=(), kwargs=None):
+    def closed(self, func, args=(), kwargs={}):  # noqa: B006
         """Set a function that is envoked when the notification is closed.
 
         The the first argument to the function ``func`` is of type ``int``
-        and indicates the reason the notification was closed.
-        It is defined in the specification:
+        and indicates the reason the notification was closed:
 
         ===  =====
          1   the notification expired
@@ -127,7 +129,7 @@ class Notification:
         :param kwargs: keyword arguments for the function
         :type kwargs: dict
         """
-        self._closed_handler = (func, args, kwargs or {})
+        self._closed_handler = (func, args, kwargs)
 
     def copy(self):
         """Make a copy of this notification."""

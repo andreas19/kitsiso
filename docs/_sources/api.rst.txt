@@ -3,7 +3,7 @@ API Reference
 
 .. note::
 
-   For examples see the :ref:`ref-introduction`.
+   For an example see the :doc:`introduction`.
 
 
 .. currentmodule:: kitsiso

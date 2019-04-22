@@ -1,7 +1,11 @@
 Overview
 ========
 
-Library for `desktop notifications <https://people.gnome.org/~mccann/docs/notification-spec/notification-spec-latest.html>`_.
+Library for `desktop notifications <https://people.gnome.org/~mccann/docs
+/notification-spec/notification-spec-latest.html>`_.
+
+*Kitsiso* means `notification <https://glosbe.com/en/tn/notification>`_
+in `Setswana <https://en.wikipedia.org/wiki/Tswana_language>`_.
 
 
 Installation
