@@ -4,10 +4,9 @@ __version__ = '0.1.0'
 
 import os
 
-from jeepney import new_method_call
-from jeepney.integrate.blocking import connect_and_authenticate
+import dcar
 
-from ._notifier import Notifier, _addr
+from ._notifier import Notifier, BUS_NAME, OBJ_PATH, INTERFACE
 from ._notification import DEFAULT_TIMEOUT, NO_TIMEOUT, Urgency, Notification
 
 __all__ = ['Notifier',
@@ -35,16 +34,11 @@ def send_notification(summary, body=None, *, app_name=None, icon=None,
     :param int timeout: notification timeout in seconds, :const:`NO_TIMEOUT`
                         or :const:`DEFAULT_TIMEOUT`
     """
-    conn = None
-    try:
-        conn = connect_and_authenticate()
-        msg = new_method_call(_addr, 'Notify', 'susssasa{sv}i',
-                              (app_name or '', 0,
-                               os.path.abspath(icon) if icon else '',
-                               summary, body or '', [],
-                               {'urgency': ('y', urgency.value)},
-                               timeout * 1000 if timeout > 0 else timeout))
-        conn.send_and_get_reply(msg)
-    finally:
-        if conn:
-            conn.sock.close()
+    with dcar.Bus() as bus:
+        bus.method_call(OBJ_PATH, INTERFACE, 'Notify', BUS_NAME,
+                        signature='susssasa{sv}i',
+                        args=(app_name or '', 0,
+                              os.path.abspath(icon) if icon else '',
+                              summary, body or '', [],
+                              {'urgency': ('y', urgency.value)},
+                              timeout * 1000 if timeout > 0 else timeout))
