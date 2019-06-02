@@ -1,5 +1,5 @@
-kitsiso |version|
-====================
+Kitsiso |version|
+=================
 
 Contents
 --------

@@ -57,6 +57,7 @@ class Notification:
         :param str key: must be unique for one notification
         :param str name: will be shown in the notification
         :param func: callback function `func(*args, **kwargs)`
+                     (should return quickly)
         :type func: callable or None
         :param args: arguments for the callback function
         :type args: tuple
@@ -124,6 +125,7 @@ class Notification:
         ===  =====
 
         :param func: the function `func(reason, *args, **kwargs)`
+                     (should return quickly)
         :param args: arguments for the function
         :type args: tuple
         :param kwargs: keyword arguments for the function

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>kitsiso._notification &#8212; kitsiso 0.1.0 documentation</title>
+    <title>kitsiso._notification &#8212; Kitsiso 0.1.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -27,7 +27,7 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">kitsiso</a></h1>
+<h1 class="logo"><a href="../../index.html">Kitsiso</a></h1>
 
 
 
@@ -135,6 +135,7 @@
 <span class="sd">        :param str key: must be unique for one notification</span>
 <span class="sd">        :param str name: will be shown in the notification</span>
 <span class="sd">        :param func: callback function `func(*args, **kwargs)`</span>
+<span class="sd">                     (should return quickly)</span>
 <span class="sd">        :type func: callable or None</span>
 <span class="sd">        :param args: arguments for the callback function</span>
 <span class="sd">        :type args: tuple</span>
@@ -202,6 +203,7 @@
 <span class="sd">        ===  =====</span>
 
 <span class="sd">        :param func: the function `func(reason, *args, **kwargs)`</span>
+<span class="sd">                     (should return quickly)</span>
 <span class="sd">        :param args: arguments for the function</span>
 <span class="sd">        :type args: tuple</span>
 <span class="sd">        :param kwargs: keyword arguments for the function</span>
@@ -240,7 +242,7 @@
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2019, Andreas19.
+      &copy;2019, Andreas Suhre.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>

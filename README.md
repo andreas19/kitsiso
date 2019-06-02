@@ -1,4 +1,4 @@
-# kitsiso
+# Kitsiso
 
 Library for sending [desktop notifications](https://people.gnome.org/~mccann/docs/notification-spec/notification-spec-latest.html).
 

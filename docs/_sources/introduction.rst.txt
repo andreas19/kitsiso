@@ -30,6 +30,9 @@ The Notification class
 A :class:`Notification` object is mutable and can be updated or shown again with
 :meth:`Notifier.notify`.
 
+.. note::
+   The callback functions for handling *ActionInvoked* and *NotificationClosed*
+   signals should return quickly or further handling of signals will be blocked.
 
 Example
 -------
@@ -47,7 +50,7 @@ open a page in a web browser to see more details.
    notifier = Notifier('Example App')
 
    def details(proc_id):
-       webbrowser.open('http:localhost/details&proc_id=%d' % proc_id)
+       webbrowser.open('http://localhost/details&proc_id=%d' % proc_id)
 
    def send_notify(proc_id, ok=True):
        noti = Notification(

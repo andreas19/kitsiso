@@ -21,7 +21,7 @@ Installation
 Dependencies
 ------------
 
-- `jeepney == 0.4 <https://pypi.org/project/jeepney/>`_
+.. include:: dependencies.txt
 
 
 Links
