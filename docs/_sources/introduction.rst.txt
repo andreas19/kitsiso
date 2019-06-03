@@ -31,7 +31,8 @@ A :class:`Notification` object is mutable and can be updated or shown again with
 :meth:`Notifier.notify`.
 
 .. note::
-   The callback functions for handling *ActionInvoked* and *NotificationClosed*
+   The callback functions for handling :meth:`ActionInvoked <Notification.add_action>`
+   and :meth:`NotificationClosed <Notification.closed>`
    signals should return quickly or further handling of signals will be blocked.
 
 Example
