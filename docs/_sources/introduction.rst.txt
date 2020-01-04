@@ -42,7 +42,7 @@ An application monitors some processes and informs the user with a desktop notif
 when one has finished. The user can click on an action button in the notification to
 open a page in a web browser to see more details.
 
-.. code-block:: python
+.. code-block:: python3
 
    import webbrowser
 

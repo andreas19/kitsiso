@@ -18,10 +18,10 @@ Installation
 # pip install kitsiso
 
 
-Dependencies
+Requirements
 ------------
 
-.. include:: dependencies.txt
+.. include:: requirements.incl
 
 
 Links
