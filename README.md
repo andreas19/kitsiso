@@ -1,6 +1,6 @@
 # Kitsiso
 
-Library for sending [desktop notifications](https://people.gnome.org/~mccann/docs/notification-spec/notification-spec-latest.html).
+Library for sending [desktop notifications](https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html).
 
 For more information see the [documentation](https://andreas19.github.io/kitsiso/overview.html).
 

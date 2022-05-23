@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction &#8212; Kitsiso 0.2.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -63,12 +64,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -85,11 +86,11 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
+  <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>This library implements the
 <a class="reference external" href="https://people.gnome.org/~mccann/docs/notification-spec/notification-spec-latest.html">Desktop Notifications Specification</a>.</p>
-<div class="section" id="the-notifier-class">
+<section id="the-notifier-class">
 <h2>The Notifier class<a class="headerlink" href="#the-notifier-class" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="api.html#kitsiso.Notifier" title="kitsiso.Notifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notifier</span></code></a> object is responsible for sending the notifications with
 <a class="reference internal" href="api.html#kitsiso.Notifier.notify" title="kitsiso.Notifier.notify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">notify()</span></code></a> and handling invoked actions and close events of them.
@@ -99,8 +100,8 @@ are defined in the specification.</p>
 <p>On instantiation a connection to the D-Bus server will be established and an event loop
 will be started. A call to <a class="reference internal" href="api.html#kitsiso.Notifier.quit" title="kitsiso.Notifier.quit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">quit()</span></code></a> will close the connection and quit
 the event loop.</p>
-</div>
-<div class="section" id="the-notification-class">
+</section>
+<section id="the-notification-class">
 <h2>The Notification class<a class="headerlink" href="#the-notification-class" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="api.html#kitsiso.Notification" title="kitsiso.Notification"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notification</span></code></a> object is mutable and can be updated or shown again with
 <a class="reference internal" href="api.html#kitsiso.Notifier.notify" title="kitsiso.Notifier.notify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Notifier.notify()</span></code></a>.</p>
@@ -110,8 +111,8 @@ the event loop.</p>
 and <a class="reference internal" href="api.html#kitsiso.Notification.closed" title="kitsiso.Notification.closed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NotificationClosed</span></code></a>
 signals should return quickly or further handling of signals will be blocked.</p>
 </div>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>An application monitors some processes and informs the user with a desktop notification
 when one has finished. The user can click on an action button in the notification to
@@ -143,8 +144,8 @@ open a page in a web browser to see more details.</p>
 </pre></div>
 </div>
 <img alt="_images/notification.png" src="_images/notification.png" />
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -154,10 +155,10 @@ open a page in a web browser to see more details.</p>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2019-2020, Andreas Suhre.
+      &copy;2019-2022, Andreas Suhre.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
